@@ -1,0 +1,27 @@
+{
+    "name": "chatsample",
+    "version": "1.0.0",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "rollup -c"
+    },
+    "devDependencies": {
+        "@rollup/plugin-node-resolve": "^13.3.0",
+        "rollup": "^2.75.7",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-copy": "^3.4.0",
+        "rollup-plugin-polyfill-node": "^0.10.2",
+        "rollup-plugin-terser": "^7.0.2"
+    },
+    "dependencies": {
+        "@microsoft/signalr": "^6.0.7",
+        "@opentelemetry/api": "^1.1.0",
+        "@opentelemetry/exporter-trace-otlp-http": "^0.31.0",
+        "@opentelemetry/exporter-trace-otlp-proto": "^0.31.0",
+        "@opentelemetry/instrumentation": "^0.31.0",
+        "@opentelemetry/resources": "^1.5.0",
+        "@opentelemetry/sdk-trace-web": "^1.5.0",
+        "@opentelemetry/semantic-conventions": "^1.5.0",
+        "buffer": "^6.0.3"
+    }
+}

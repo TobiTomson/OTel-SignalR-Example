@@ -1,0 +1,33 @@
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4317
+        cors:
+          allowed_origins:
+            - '*'
+  jaeger:
+    protocols:
+      thrift_http:
+        endpoint: 0.0.0.0:14249
+
+processors:
+  batch:
+
+exporters:
+  otlphttp:
+    endpoint: "$OTEL_URL"
+    headers:
+      Authorization : "Api-Token $OTEL_AUTH_TOKEN"
+  # jaeger is not required, adding it here to debug in case of missing traces
+  jaeger:
+    endpoint: "jaeger:14250"
+    tls:
+      insecure: true
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlphttp, jaeger]

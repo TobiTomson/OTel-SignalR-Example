@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.56.0
+    command: ["--config=/etc/otel-collector-config.yaml", "${OTELCOL_ARGS}"]
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    ports:
+      - "13133:13133" # health_check extension
+      - "4317:4317"   # OTLP HTTP receiver
+      - "14249:14249"   # OTLP HTTP receiver
+    env_file:
+      - .env
+    depends_on:
+      - jaeger
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686"
+      - "14250"
