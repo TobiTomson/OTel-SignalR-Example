@@ -28,13 +28,18 @@ Traces are sent to Dynatrace via a [Collector](https://opentelemetry.io/docs/con
 
 ## Setup:
 1. Clone this repo
-2. Ensure that your Dynatrace environment satisfies the [prerequisites for .NET instrumentation](https://www.dynatrace.com/support/help/shortlink/opent-dotnet#req) - you only need to follow the "Prerequisites" section.
-3. Create a Dynatrace Authentication Token with `openTelemetryTrace.ingest` scope (see [Dynatrace Documentation](https://www.dynatrace.com/support/help/shortlink/opentelemetry-instrumentation-guide#create-token))
-4. Prepate the OTel collector by creating and filling out an `.env` file in [`otel-collector`](otel-collector) based on the provided [`.env.template`](otel-collector/.env.template) (use the token created in the previous step)
-5. Start the OTel collector by running `docker-compose --env-file .env up` in the [`otel-collector`](otel-collector) folder
-6. Build the website part by running `npm ci && npm run build` from [`ChatSample/websrc`](ChatSample/websrc)
-7. Open [`ChatSample.sln`](ChatSample.sln) in [VisualStudio](https://visualstudio.microsoft.com/vs/)
-8. Run `ChatSample` from the opened VisualStudio project
+2. Enable [**OpenTelemetry (.NET)** in Dynatrace](https://www.dynatrace.com/support/help/shortlink/opentelemetry-oneagent#expand--opentelemetry-net--5).
+3. Ensure that your Dynatrace environment satisfies the [prerequisites for .NET instrumentation](https://www.dynatrace.com/support/help/shortlink/opent-dotnet#req) - you only need to follow the "Prerequisites" section.
+4. Enable OpenTelemetry context propagation in Dynatrace (Settings > Server-side service monitoring > ) for the following two instrumentation library names:
+4. Enable OpenTelemetry context propagation in Dynatrace (Settings > Server-side service monitoring > Span context propagation) for the following two instrumentation libraries:
+   1. `com.dynatrace.samplechat`
+   2. `Samplechat.SignalR.Backend`
+5. Create a Dynatrace Authentication Token with `openTelemetryTrace.ingest` scope (see [Dynatrace Documentation](https://www.dynatrace.com/support/help/shortlink/opentelemetry-instrumentation-guide#create-token))
+6. Prepate the OTel collector by creating and filling out an `.env` file in [`otel-collector`](otel-collector) based on the provided [`.env.template`](otel-collector/.env.template) (use the token created in the previous step)
+7. Start the OTel collector by running `docker-compose --env-file .env up` in the [`otel-collector`](otel-collector) folder
+8. Build the website part by running `npm ci && npm run build` from [`ChatSample/websrc`](ChatSample/websrc)
+9.  Open [`ChatSample.sln`](ChatSample.sln) in [VisualStudio](https://visualstudio.microsoft.com/vs/)
+10. Run `ChatSample` from the opened VisualStudio project
 
 ![Screenshot showing how the chat UI of the sample app](doc-assets/chat.png "sample app UI")
 
