@@ -17,7 +17,7 @@ For monitoring it uses [OpenTelemetry](https://opentelemetry.io/docs/) - OTel fo
 
 The way this works is via manual Context Propagation - which as of this writing (02. August 2022) is not yet part of the OTel documentation.
 
-Traces are sent to Dynatrace via a [Collector](https://opentelemetry.io/docs/concepts/components/#collector).
+Traces are sent to Dynatrace via a [Collector](https://opentelemetry.io/docs/concepts/components/#collector). The .NET traces can also directly be picked up by the OneAgent.
 
 ![Architecture overview - how do the components of this example relate?](doc-assets/OTel-DotNet-JavaScript.drawio.svg "Architecture overview")
 
