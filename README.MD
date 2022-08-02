@@ -30,7 +30,6 @@ Traces are sent to Dynatrace via a [Collector](https://opentelemetry.io/docs/con
 1. Clone this repo
 2. Enable [**OpenTelemetry (.NET)** in Dynatrace](https://www.dynatrace.com/support/help/shortlink/opentelemetry-oneagent#expand--opentelemetry-net--5).
 3. Ensure that your Dynatrace environment satisfies the [prerequisites for .NET instrumentation](https://www.dynatrace.com/support/help/shortlink/opent-dotnet#req) - you only need to follow the "Prerequisites" section.
-4. Enable OpenTelemetry context propagation in Dynatrace (Settings > Server-side service monitoring > ) for the following two instrumentation library names:
 4. Enable OpenTelemetry context propagation in Dynatrace (Settings > Server-side service monitoring > Span context propagation) for the following two instrumentation libraries:
    1. `com.dynatrace.samplechat`
    2. `Samplechat.SignalR.Backend`
