@@ -46,14 +46,14 @@ namespace ChatSample
                         .AddService(
                             serviceName: TelemetryConstants.ServiceName,
                             serviceVersion: TelemetryConstants.ServiceVersion)
-                .AddAttributes(dt_metadata))
+                .AddAttributes(dt_metadata));
                 // the OneAgent can also pick up traces, so this is optional.
-                .AddOtlpExporter(opt =>
-                {
-                    // endpoint for collector
-                    opt.Endpoint = new System.Uri("http://localhost:4317/v1/traces");
-                    opt.Protocol = OpenTelemetry.Exporter.OtlpExportProtocol.HttpProtobuf;
-                });
+                //.AddOtlpExporter(opt =>
+                //{
+                //    // endpoint for collector
+                //    opt.Endpoint = new System.Uri("http://localhost:4317/v1/traces");
+                //    opt.Protocol = OpenTelemetry.Exporter.OtlpExportProtocol.HttpProtobuf;
+                //});
             });
         }
 
